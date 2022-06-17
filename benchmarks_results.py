@@ -8,16 +8,15 @@ import pygsheets
 from re import search
 import time
 
-
 st.set_page_config(layout="wide")
 
 gc = pygsheets.authorize(service_file='C:\\Users\\danie\\Desktop\\AI_Art\\GPT-2\\History Benchmarks\\credentials.json')
 
-euro_sheet = gc.open('european_history_benchmark_results')
+euro_sheet = gc.open('high_school_european_history_test')
 ap_euro = euro_sheet.sheet1
-us_sheet = gc.open('us_history_benchmark_tests')
+us_sheet = gc.open('high_school_us_history_test')
 ap_us = us_sheet.sheet1
-world_sheet = gc.open('world_history_benchmark_results')
+world_sheet = gc.open('high_school_world_history_test')
 ap_world = world_sheet.sheet1
 benchmarks_sheets = gc.open('benchmark_tests')
 benchmarks = benchmarks_sheets.sheet1
@@ -32,11 +31,6 @@ df4 = df4_preheaders.rename(columns=df4_preheaders.iloc[0]).drop(df4_preheaders.
 euro_random = df1.sample()
 us_random = df2.sample()
 world_random = df3.sample()
-
-#def new_question():
-    #for row in df4.iterrows():
-        #if row[1]['question'] in df2['A'].values:
-            #question_present = True
 
 st.header("History Benchmarks Demo")
 
@@ -70,9 +64,6 @@ answer = field.iloc[0][5]
 benchmarks_question_number = df4.loc[df4['question_number'] == question_number1]
 question_check = not benchmarks_question_number.empty
 is_question_already_in_benchmarks = str(question_check)
-
-#benchmarks_question_number = df4.loc[df4['question_number'] == question_number, 'question_number'].iloc[0]
-#is_question_already_in_benchmarks = True if benchmarks_question_number else False
 
 
 if answer == "A":
@@ -187,13 +178,6 @@ with col2:
             ranking_collection()
 
 
-    #sh1 = gc.open('benchmark_tests')
-    #wks1 = sh1[0]
-    #now = dt.now()
-    #data = wks1.get_as_df(has_header=True, index_col=None)
-
-    #if st.session_state.field == "U.S. History":
-
     def us_history_data():
         sh1 = gc.open('us_history_benchmark_tests')
         wks1 = sh1[0]
@@ -263,34 +247,3 @@ with col2:
         euro_history_data()
     else:
         world_history_data()
-
-
-
-
-
-    #us_history_data = data[data['field'] == 'U.S. History']
-
-    #correct_statements = us_history_data[us_history_data['correct_status'] == 'correct'].shape[0]
-    #incorrect_statements = us_history_data[us_history_data['correct_status'] == 'incorrect'].shape[0]
-
-    #st.write('The accuracy rate for U.S. History is {} out of {} total attempt, or {}%'.format(correct_statements, (correct_statements + incorrect_statements)))
-
-    #st.bar_chart([correct_statements, incorrect_statements])
-
-
-    #us_history_correct = data[(data['field'] == 'U.S. History') & (data['correct_status'] == 'correct')]
-
-    #st.write('The accuracy rate for U.S. History is', len(us_history_correct), 'out of', len(data), 'total attempts')
-    #st.write("The accuracy rate for {} is {}%, out of {} total attempts.".format(field_value, accuracy_rate, total_attempts))
-
-
-    #correct_status_count = data['correct_status'].value_counts()
-    #total_count = len(data['correct_status'])
-    #total_count_str = str(total_count)
-    #percentile = len(correct_rows)/len(us_history_rows)
-    #percentile = correct_status_count[0]/total_count
-    #percentile_str = str(percentile*100)
-
-    #st.write("GPT-3's accuracy rate for U.S. History: " + percentile_str[:4] + "% total, out of  " + total_count_str + " attempts.")
-    #st.write("GPT-3's accuracy rate for U.S. History: " + correct_answers + "% total, out of  " + total_count_str + " attempts.")
-    #st.bar_chart(data['correct_status'].value_counts())
