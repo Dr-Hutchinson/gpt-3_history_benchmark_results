@@ -10,7 +10,13 @@ import time
 
 st.set_page_config(layout="wide")
 
-gc = pygsheets.authorize(service_file='C:\\Users\\danie\\Desktop\\AI_Art\\GPT-2\\History Benchmarks\\credentials.json')
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+
+credentials = service_account.Credentials.from_service_account_info(
+                st.secrets["gcp_service_account"], scopes = scope)
+
+gc = pygsheets.authorize(custom_credentials=credentials)
 
 euro_sheet = gc.open('high_school_european_history_test')
 ap_euro = euro_sheet.sheet1
@@ -133,7 +139,7 @@ with col2:
         button3 = st.form_submit_button("Submit Question")
 
         if button3:
-            os.environ["OPENAI_API_KEY"] = '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'
+            os.environ["OPENAI_API_KEY"] = st.secrets["openai_api_key"]
             openai.api_key = os.getenv("OPENAI_API_KEY")
 
             summon = openai.Completion.create(
