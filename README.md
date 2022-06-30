@@ -10,7 +10,7 @@ This replication study reexamines GPT-3’s performance on these benchmarks foll
 | Chinchilla (March 2022) | 83.3%      |    78.8% | 85.2%
 
 ## Replication Method:
-Using the Python script [`benchmarks.py`](https://github.com/Dr-Hutchinson/gpt-3_history_benchmark_results/blob/main/benchmarks_results.py), the benchmark questions released by Hendrycks were retested using OpenAI’s API for GPT-3. GPT-3’s responses were then compared against the published answers contained in the Hendrycks  benchmark sets. The results of each of those benchmarks are contained in this collection. Users can rerun GPT-3’s performance on these benchmarks at [_Can AIs Accurately Interpret History? A Digital History Experiment_](https://dr-hutchinson-gpt-3-challenge-app-f0wvs8.streamlitapp.com/)
+Using the Python script [`benchmarks.py`](https://github.com/Dr-Hutchinson/gpt-3_history_benchmark_results/blob/main/benchmarks_results.py), the [benchmark questions](https://github.com/hendrycks/test) released by Hendrycks were retested using OpenAI’s API for GPT-3. GPT-3’s responses were then compared against the published answers contained in the Hendrycks  benchmark sets. The results of each of those benchmarks are contained in this collection. Users can rerun GPT-3’s performance on these benchmarks at [_Can AIs Accurately Interpret History? A Digital History Experiment_](https://dr-hutchinson-gpt-3-challenge-app-f0wvs8.streamlitapp.com/)
 
 ## Credits
 Many thanks to Dan Hendrycks for sharing the discipline-specific results for the historical fields contained in the MMMLU Benchmarks. 
