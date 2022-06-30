@@ -1,6 +1,6 @@
 # Replication Study: GPT-3's Performance on Historical Fields in the MMMLU Benchmarks (May 2022)
 ## By Daniel Hutchinson
-In January 2021, researchers in the field of machine learning introduced a set of benchmarks for measuring the accuracy of Large Language Models (LLMs) on questions in three historical fields.[^1]
+In January 2021, researchers in the field of machine learning introduced a set of benchmarks for measuring the accuracy of Large Language Models (LLMs) on questions in three historical fields. (Hendryks et al, Measuring Massive Multitask Language Understanding)[^1]
 This replication study reexamines GPT-3’s performance on these benchmarks following the implementation of the GPT-3 Instruct model in January 2022.[^2] The resulting data records significant gains on these benchmarks, approaching expert-level accuracy (80%) in two of the three historical fields. These results approach the performance of Deepmind’s Chinchilla, the LLM currently achieving the highest accuracy on these benchmarks. [^3]
 
 | LLM        | A.P. U.S. History | A.P. European History   | A.P. World History
